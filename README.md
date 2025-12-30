@@ -1,128 +1,225 @@
-# GOIT-JS-HW-09 🚀
+<h1>📘 JavaScript Homework 9 — Code Modularity & Vite Bundler</h1>
 
-Wow, you're already on Module 9!
+<p>
+This repository contains a complete implementation of <strong>Homework 9</strong>, focused on
+<strong>code modularity</strong>, <strong>modern build tools</strong>, and <strong>working with local storage</strong>
+using <strong>Vite</strong> as a bundler.
+</p>
 
-Shall we recap the intermediate results? You now:
+<hr />
 
-- ✅ Understand the features of the JSON format.
-- ✅ Know and use the methods of the JSON object.
-- ✅ Know the difference between web storage and local storage.
-- ✅ Have installed Node.js and are using NPM (node package manager).
-- ✅ Understand the concept of code modularity.
-- ✅ Use the syntax of ECMAScript Modules.
-- ✅ Know how to install, remove, and use packages in your code.
+<h2>🚀 Overview</h2>
 
-It's time to practice! Interesting tasks await you — creating an image gallery and saving form data.
+<p>
+Wow — you are already in <strong>Module 9</strong>! 💪  
+At this stage of the JavaScript course, the focus shifts toward professional project structure,
+modular code organization, and real-world tooling.
+</p>
 
-## Homework 9
+<p>This homework reinforces your understanding of:</p>
 
-- Create a repository named `goit-js-hw-09`.
-- Build the project with [Vite](https://vitejs.dev/). We have prepared and recommend using this [template](https://github.com/goitacademy/vanilla-app-template/blob/main/README.md) for a pre-configured build with additional settings.
-- Read the task and implement it in your code editor.
-- Ensure your code is formatted with `Prettier` and that there are no errors or warnings in the console when you open the task page.
-- Submit your homework for review.
+<ul>
+  <li>JSON format and its characteristics</li>
+  <li>JSON object methods (<code>stringify</code>, <code>parse</code>)</li>
+  <li>Web Storage vs Local Storage</li>
+  <li>Node.js installation and NPM usage</li>
+  <li>Code modularity concepts</li>
+  <li>ECMAScript Modules (ESM) syntax</li>
+  <li>Installing, removing, and using packages via NPM</li>
+</ul>
 
-**Submission Format:** The homework must include a link to the source files and a link to the live page on `GitHub Pages`.
+<p>
+It’s time to put theory into practice by building an image gallery and a feedback form with
+persistent state.
+</p>
 
-#### :bangbang: Use this layout for the styling of your tasks.
+<hr />
 
-The file and folder structure in your project's `src` folder should be as follows. You can see how to include the files in `index.html` from the previous homework.
+<h2>📂 Project Structure</h2>
 
-![Project Structure](./src/assets/images/assignment-image-1.png)
+<pre>
+goit-js-hw-09/
+├─ src/
+│  ├─ css/
+│  ├─ img/
+│  ├─ js/
+│  │  ├─ 01-gallery.js
+│  │  └─ 02-form.js
+├─ public/
+│  ├─ 01-gallery.html
+│  └─ 02-form.html
+├─ index.html
+├─ package.json
+├─ vite.config.js
+└─ README.md
+</pre>
 
----
+<p>
+The project is built using <strong>Vite</strong> with ES Modules and follows a clean,
+scalable folder structure.
+</p>
 
-## Task 1 - Image Gallery 🖼️
+<hr />
 
-Complete this task in the `01-gallery.html` and `01-gallery.js` files.
+<h2>🧩 Task 1 — Image Gallery</h2>
 
-In the previous assignment, you created an image gallery on your own, using event delegation and a modal window from a CDN to display the full-size image.
-Creating a gallery is a common task for developers, but writing it manually every time is quite tedious. There are libraries that handle this functionality.
-Create the same gallery using the **SimpleLightbox** library, which will handle all the functionality of clicking on images, opening and closing the modal window, and navigating through images with the keyboard.
+<p>
+Implemented in <strong>01-gallery.html</strong> and <strong>01-gallery.js</strong>.
+</p>
 
-Watch the demo video of the gallery in action.
+<p>
+The goal of this task is to create an image gallery using the
+<strong>SimpleLightbox</strong> library instead of manual event delegation and modal logic.
+</p>
 
-![Gallery Demo](./src/assets/images/assignment-1.gif)
+<h3>Key Features</h3>
 
-Here are the key details to pay attention to:
+<ul>
+  <li>Gallery items are generated dynamically from an images data array</li>
+  <li>No manual event listeners for opening or closing the modal</li>
+  <li>SimpleLightbox handles:
+    <ul>
+      <li>Image clicks</li>
+      <li>Modal opening and closing</li>
+      <li>Keyboard navigation</li>
+    </ul>
+  </li>
+</ul>
 
-- You no longer need to handle event delegation; the [SimpleLightbox](https://www.npmjs.com/package/simplelightbox) library will automatically track click events on the gallery cards.
-- A separate library is not required to create the modal window; this feature is integrated into [SimpleLightbox](https://www.npmjs.com/package/simplelightbox).
+<h3>Library Integration</h3>
 
-Complete this task in the `01-gallery.html` and `01-gallery.js` files. Break down the task into several subtasks:
+<pre>
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+</pre>
 
-Use the code from the previous assignment and refactor it. You don't need to write everything from scratch. For example, the creation of gallery items will remain the same. However, you should delete the event delegation and modal window opening code.
+<h3>Gallery Markup</h3>
 
-You will need to slightly change the gallery card layout; use the template below.
+<pre>
+&lt;li class="gallery-item"&gt;
+  &lt;a class="gallery-link" href="large-image.jpg"&gt;
+    &lt;img
+      class="gallery-image"
+      src="small-image.jpg"
+      alt="Image description"
+    /&gt;
+  &lt;/a&gt;
+&lt;/li&gt;
+</pre>
 
-```html
-<li class="gallery-item">
-  <a class="gallery-link" href="large-image.jpg">
-    <img class="gallery-image" src="small-image.jpg" alt="Image description" />
-  </a>
-</li>
-```
+<h3>Additional Configuration</h3>
 
-Use `npm` to add [SimpleLightbox](https://www.npmjs.com/package/simplelightbox) as a dependency to your project. To include the library's CSS code in the project, you need to add another import in addition to what is specified in the documentation.
+<ul>
+  <li>Image captions are taken from the <code>alt</code> attribute</li>
+  <li>Captions appear below the image</li>
+  <li>Caption delay is set to <strong>250ms</strong></li>
+</ul>
 
-```javascript
-// Import the main component
-import SimpleLightbox from 'simplelightbox';
-// Import additional styles
-import 'simplelightbox/dist/simple-lightbox.min.css';
-```
+<h3>Mentor Checklist</h3>
 
-The next step is to initialize the library after creating and adding the gallery items to `ul.gallery`. For this, refer to the [SimpleLightbox](https://www.npmjs.com/package/simplelightbox) documentation — primarily the "Usage" and "Markup" sections.
+<ul>
+  <li>Gallery is rendered dynamically from JS data</li>
+  <li>Layout matches the provided template</li>
+  <li>No custom event listeners are used</li>
+  <li>SimpleLightbox is installed via NPM</li>
+  <li>Library is initialized after DOM elements are added</li>
+  <li>Modal opens with the correct large image</li>
+  <li>Image caption appears after 250ms</li>
+</ul>
 
-After that, look at the "Options" section in the documentation and add the display of captions from the images' `alt` attribute. The caption should be at the bottom and appear 250 milliseconds after the modal window opens.
+<hr />
 
-### Mentor's Checklist:
+<h2>🧩 Task 2 — Feedback Form</h2>
 
-- The live page displays an image gallery from the `images` data array.
-- The image gallery is styled to match the layout.
-- The gallery data is generated dynamically in JS.
-- There are no custom event listeners.
-- The SimpleLightbox library is integrated using `npm`.
-- The library instance is initialized after the gallery items are added to the DOM and outside the scope of any function.
-- When a gallery item is clicked, the library's modal window opens with an enlarged version of the clicked image, and the library's basic functions work.
-- Within 250 milliseconds of the modal window opening, the content of the image's `alt` attribute is displayed as a caption below the image.
+<p>
+Implemented in <strong>02-form.html</strong> and <strong>02-form.js</strong>.
+</p>
 
----
+<p>
+This task focuses on working with <strong>localStorage</strong> to preserve form state
+between page reloads.
+</p>
 
-## Task 2 - Feedback Form 📝
+<h3>Form Markup</h3>
 
-Complete this task in the `02-form.html` and `02-form.js` files.
-
-Add a feedback form to the HTML structure. In JS, write a script that saves the field values to local storage when the user types something.
-
-```html
-<form class="feedback-form" autocomplete="off">
-  <label>
+<pre>
+&lt;form class="feedback-form" autocomplete="off"&gt;
+  &lt;label&gt;
     Email
-    <input type="email" name="email" autofocus />
-  </label>
-  <label>
+    &lt;input type="email" name="email" autofocus /&gt;
+  &lt;/label&gt;
+  &lt;label&gt;
     Message
-    <textarea name="message" rows="8"></textarea>
-  </label>
-  <button type="submit">Submit</button>
-</form>
-```
+    &lt;textarea name="message" rows="8"&gt;&lt;/textarea&gt;
+  &lt;/label&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</pre>
 
-Complete this task in the `02-form.html` and `02-form.js` files. Break the task into the following subtasks:
+<h3>Logic Breakdown</h3>
 
-1.  Using delegation, track the `input` event on the form and save an object containing the `email` and `message` fields to local storage each time. Use the string `"feedback-form-state"` as the key for storage.
-2.  When the page loads, check the state of the storage. If there is saved data, fill the form fields with it. Otherwise, the fields should be empty.
-3.  When the form is submitted, clear the storage and the form fields. Also, log an object containing the `email`, `message` fields and their current values to the console.
+<ul>
+  <li>Form input events are listened using delegation</li>
+  <li>Form state is saved under the key <code>"feedback-form-state"</code></li>
+  <li>Whitespace is trimmed before saving</li>
+  <li>Data persists after page reload</li>
+  <li>On submit:
+    <ul>
+      <li>Both fields are validated</li>
+      <li>Form data is logged to the console</li>
+      <li>localStorage is cleared</li>
+      <li>Form fields are reset</li>
+    </ul>
+  </li>
+</ul>
 
-### Mentor's Checklist:
+<h3>Mentor Checklist</h3>
 
-- The live page displays a form with two form elements and a button of type `submit`.
-- The form is styled according to the layout.
-- The `input` and `submit` events are listened for on the form.
-- When data is entered into any form element, it is saved to local storage under the key `"feedback-form-state"`, and the saved data does not contain leading or trailing spaces.
-- Entering data in one field of the form does not delete the data from the other field in storage.
-- When the page is refreshed, the data from local storage is placed in the form elements, and there are no `undefined` values in the form fields.
-- When the form is submitted, it checks if both form elements are filled.
-- If both form elements are filled upon submission, an object with the `email`, `message` fields and their current values is printed to the console, and the storage and form fields are cleared.
-- If data is entered into any form element after submission, the data from the previous submission does not appear in local storage.
+<ul>
+  <li>Form contains email, message, and submit button</li>
+  <li>Form is styled according to layout</li>
+  <li>Input and submit events are handled</li>
+  <li>localStorage updates without overwriting other fields</li>
+  <li>No <code>undefined</code> values appear in inputs</li>
+  <li>Form state restores correctly on reload</li>
+  <li>Console logs correct data object on submit</li>
+</ul>
+
+<hr />
+
+<h2>📌 Final Notes</h2>
+
+<p>
+This homework demonstrates a modern JavaScript workflow using:
+</p>
+
+<ul>
+  <li>ES Modules</li>
+  <li>Vite bundler</li>
+  <li>NPM package management</li>
+  <li>Third-party libraries</li>
+  <li>Persistent browser storage</li>
+</ul>
+
+<p>
+The project follows best practices for scalability, readability, and maintainability.
+</p>
+
+<hr />
+
+<h2>🔗 Links</h2>
+
+<ul>
+  <li>
+    <strong>GitHub Repository:</strong>
+    <a href="https://github.com/kutluhangil/goit-js-hw-09">
+      https://github.com/kutluhangil/goit-js-hw-09
+    </a>
+  </li>
+  <li>
+    <strong>Live Demo (GitHub Pages):</strong>
+    <a href="https://kutluhangil.github.io/goit-js-hw-09/">
+      https://kutluhangil.github.io/goit-js-hw-09/
+    </a>
+  </li>
+</ul>
