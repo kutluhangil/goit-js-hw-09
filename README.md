@@ -40,14 +40,23 @@ persistent state.
 <pre>
 goit-js-hw-09/
 ├─ src/
-│  ├─ css/
-│  ├─ img/
+│  ├─ assets/
+│  │  └─ images/
 │  ├─ js/
-│  │  ├─ 01-gallery.js
-│  │  └─ 02-form.js
+│  ├─ pages/
+│  │  ├─ gallery/
+│  │  │  ├─ gallery.html
+│  │  │  ├─ gallery.js
+│  │  │  └─ gallery.css
+│  │  └─ form/
+│  │     ├─ form.html
+│  │     ├─ form.js
+│  │     └─ form.css
+│  ├─ data.js
+│  └─ style.css
 ├─ public/
-│  ├─ 01-gallery.html
-│  └─ 02-form.html
+│  └─ vite.svg
+├─ dist/
 ├─ index.html
 ├─ package.json
 ├─ vite.config.js
@@ -64,7 +73,7 @@ scalable folder structure.
 <h2>🧩 Task 1 — Image Gallery</h2>
 
 <p>
-Implemented in <strong>01-gallery.html</strong> and <strong>01-gallery.js</strong>.
+Implemented in <strong>src/pages/gallery/gallery.html</strong> and <strong>src/pages/gallery/gallery.js</strong>.
 </p>
 
 <p>
@@ -132,7 +141,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 <h2>🧩 Task 2 — Feedback Form</h2>
 
 <p>
-Implemented in <strong>02-form.html</strong> and <strong>02-form.js</strong>.
+Implemented in <strong>src/pages/form/form.html</strong> and <strong>src/pages/form/form.js</strong>.
 </p>
 
 <p>
